@@ -1,0 +1,13 @@
+.applicationPool__container {
+    margin: 96px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container__header {
+    width: 60%;
+    margin: 0 auto;
+    font-size: 3rem;
+    text-align: center;
+} 
