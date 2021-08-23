@@ -1,0 +1,51 @@
+﻿.manage__bar {
+    margin: 1rem auto;
+    display: flex;
+    align-items: center;
+}
+
+.search__input {
+    height: 2.5rem;
+    width: 16rem;
+    font-size: 1.2rem;
+    margin-right: 0.25rem;
+    border: 1px solid black;
+    border-radius: 4px;
+    outline: none;
+    padding: 0.3rem;
+}
+
+.search__input:focus, .search__input:hover {
+    border: black solid 1px;
+    box-shadow: inset 0 0 5px black;
+    cursor: text;
+}
+
+.search__button {
+    background: url("../../assets/search.svg") no-repeat;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 0.3rem;
+    margin-right: 0.25rem;
+}
+
+.search__button:hover {
+    box-shadow: inset 0 0 5px black;
+    cursor: pointer;
+}
+
+.refresh__button {
+    background: url("../../assets/refresh.svg") no-repeat;
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 0.3rem;
+}
+
+.refresh__button:hover {
+    box-shadow: inset 0 0 5px black;
+    cursor: pointer;
+}
