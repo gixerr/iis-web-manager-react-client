@@ -1,0 +1,12 @@
+.applications__container {
+    margin: 96px auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.container__header {
+    width: 60%;
+    margin: 0 auto;
+    font-size: 3rem;
+    text-align: center;
+} 

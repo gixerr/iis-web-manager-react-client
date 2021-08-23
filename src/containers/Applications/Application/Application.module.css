@@ -1,0 +1,14 @@
+﻿.application {
+    border: 1px gray solid;
+    border-radius: 4px;
+    padding: 0 16px;
+    margin: 16px auto;
+    min-width: 400px;
+    width: 60%;
+    overflow: auto;
+    font-size: 1.2rem;
+}
+
+.application:first-of-type {
+    margin-top: 32px;
+}
