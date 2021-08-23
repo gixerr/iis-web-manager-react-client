@@ -1,0 +1,24 @@
+.navigationBar {
+    height: 64px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    border-bottom: 1px black solid;
+    box-shadow: 0 0 15px black;
+    background: white;
+}
+
+.navigationBar__logo {
+    height: 80%;
+    width: 20%;
+}
+
+.navigation {
+    width: 80%;
+}
