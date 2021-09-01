@@ -1,0 +1,33 @@
+.deleteApplicationPoolForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.deleteApplicationPoolButtons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.deleteApplicationPoolSuccessButton {
+    width: 5rem;
+    height: 2rem;
+    background: limegreen;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 0.3rem;
+}
+
+.deleteApplicationPoolSuccessButton:hover, .deleteApplicationPoolDangerButton:hover {
+    box-shadow: inset 0 0 5px black;
+    cursor: pointer;
+}
+
+.deleteApplicationPoolDangerButton {
+    width: 5rem;
+    height: 2rem;
+    background: red;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 0.3rem;
+}

@@ -6,6 +6,7 @@ import ApplicationPoolsManageBar from '../../components/ApplicationPoolsSearchBa
 import Auxiliary from '../../hoc/Auxiliary/Auxiliary';
 import Modal from '../../components/Modal/Modal';
 import AddApplicationPool from '../../components/AddApplicationPool/AddApplicationPool';
+import DeleteApplicationPool from '../../components/DeleteApplicationPool/DeleteApplicationPool';
 
 
 const ApplicationPools = (props) => {
@@ -60,9 +61,12 @@ const ApplicationPools = (props) => {
     };
 
     const deleteButtonHandler = async (name) => {
-        await deleteApplicationPool(name);
-        await fetchAllApplicationPools();
-        setSearchFieldValue('');
+        setModalState(!modalState);
+        const component = <DeleteApplicationPool applicationPoolName={name}
+                                                 deleteClick={modalDeleteButtonHandler.bind(null, name)}
+                                                 cancelClick={modalCancelButtonHandler}/>
+        setModalComponent(component);
+
     };
 
     const modalCancelButtonHandler = () => {
@@ -79,6 +83,13 @@ const ApplicationPools = (props) => {
         await fetchAllApplicationPools();
     };
 
+    const modalDeleteButtonHandler = async (applicationPoolName) => {
+        await deleteApplicationPool(applicationPoolName);
+        setSearchFieldValue('');
+        setModalState(false);
+        await fetchAllApplicationPools();
+    }
+
     const addButtonHandler = () => {
         setModalState(!modalState);
         const component = <AddApplicationPool cancelClick={modalCancelButtonHandler}
@@ -86,7 +97,7 @@ const ApplicationPools = (props) => {
         setModalComponent(component);
     };
 
-    useEffect(fetchAllApplicationPools, []);
+        useEffect(fetchAllApplicationPools, []);
 
     const renderOutput = () => {
         if (applicationPools.length > 0) {
