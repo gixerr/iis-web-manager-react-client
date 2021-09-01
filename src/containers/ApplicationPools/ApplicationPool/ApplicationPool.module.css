@@ -3,8 +3,9 @@
     border-radius: 4px;
     padding: 0 16px;
     margin: 16px auto;
-    min-width: 400px;
+    min-width: 500px;
     font-size: 1.2rem;
+    box-shadow: inset 0 0 5px black;
 }
 
 .applicationPool:first-of-type {
@@ -15,6 +16,132 @@
     color:  limegreen;
 }
 
+.stopping {
+    color:  darkorange;
+}
+
+.starting {
+    color:  darkorange;
+}
+
+.recycling {
+    color:  darkorange;
+}
+
 .stopped {
     color:  red;
+}
+
+.applicationPool__main-area{
+    margin-bottom: 1rem;
+}
+
+.applicationPool__base-info {
+    
+}
+
+.applicationPool__button-area {
+    display: flex;
+    justify-content: space-between;
+}
+
+.applicationPool__details--show {
+    display: block;
+}
+
+.applicationPool__details--hide {
+    display: none;
+}
+
+.applicationPool__button--start {
+    background: url("../../../assets/start.svg") no-repeat center;
+    width: 2rem;
+    height: 2rem;
+    padding: 16px;
+    border: 0 solid red;
+    border-radius: 50%;
+}
+
+.applicationPool__button--start:hover {
+    box-shadow: 0 0 10px limegreen;
+}
+
+.applicationPool__button--start:disabled {
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.applicationPool__button--stop {
+    background: url("../../../assets/stop.svg") no-repeat center;
+    width: 2rem;
+    height: 2rem;
+    padding: 16px;
+    border: 0 solid transparent;
+    border-radius: 50%;
+}
+
+.applicationPool__button--stop:hover {
+    box-shadow: 0 0 10px red;
+}
+
+.applicationPool__button--stop:disabled {
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.applicationPool__button--recycle {
+    background: url("../../../assets/recycle.svg") no-repeat center;
+    width: 2rem;
+    height: 2rem;
+    padding: 16px;
+    border: 0 solid transparent;
+    border-radius: 50%;
+}
+
+.applicationPool__button--recycle:hover {
+    box-shadow: 0 0 10px limegreen;
+}
+
+.applicationPool__button--recycle:disabled {
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.applicationPool__button--delete {
+    background: url("../../../assets/delete.svg") no-repeat center;
+    width: 2rem;
+    height: 2rem;
+    padding: 16px;
+    border: 0 solid transparent;
+    border-radius: 50%;
+}
+
+.applicationPool__button--delete:hover {
+    box-shadow: 0 0 10px red;
+}
+
+.applicationPool__button--edit {
+    background: url("../../../assets/edit.svg") no-repeat center;
+    width: 2rem;
+    height: 2rem;
+    padding: 16px;
+    border: 0 solid transparent;
+    border-radius: 50%;
+}
+
+.applicationPool__button--edit:hover {
+    box-shadow: 0 0 10px teal;
+}
+
+.applicationPool__button--details {
+    background: url("../../../assets/details.svg") no-repeat center;
+    width: auto;
+    height: auto;
+    padding: 16px;
+    border: 0 solid transparent;
+    border-radius: 50%;
+}
+
+.applicationPool__button--details:hover {
+    box-shadow: 0 0 10px black;
 }
