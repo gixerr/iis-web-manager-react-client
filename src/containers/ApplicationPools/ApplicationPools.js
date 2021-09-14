@@ -65,7 +65,6 @@ const ApplicationPools = (props) => {
                                                  deleteClick={modalDeleteButtonHandler.bind(null, name)}
                                                  cancelClick={modalCancelButtonHandler}/>;
         setModalComponent(component);
-
     };
 
     const modalCancelButtonHandler = () => {

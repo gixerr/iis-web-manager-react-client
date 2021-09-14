@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import classes from './EditApplicationPool.module.css';
 import axios from '../../axios';
-import {useHistory} from 'react-router-dom';
 
 const EditApplicationPool = (props) => {
 
@@ -19,11 +18,18 @@ const EditApplicationPool = (props) => {
                     setIdentity(response.data.identity);
                 }
             );
+
     const currentApplicationPoolName = window.location.pathname.split('/').pop();
 
-    const updateApplicationPool = () =>
-        axios.put('/ApplicationPools', {name: decodeURI(currentApplicationPoolName),
-        newName: applicationPoolName, managedPipelineMode, managedRunTimeVersion, identity})
+    const updateApplicationPool = async () => {
+        const response = await axios.put('/ApplicationPools', {
+            name: decodeURI(currentApplicationPoolName),
+            newName: applicationPoolName, managedPipelineMode, managedRunTimeVersion, identity
+        }).catch(resp => resp);
+
+        return response;
+
+    };
 
     useEffect(async () => await getEditableProperties(currentApplicationPoolName), []);
 
@@ -43,10 +49,19 @@ const EditApplicationPool = (props) => {
         setIdentity(event.target.value);
     };
 
-    const updateButtonHandler = async () => {
-        await updateApplicationPool()
-
+    const backButtonHandler = () => {
+        props.history.goBack();
     }
+
+    const updateButtonHandler = async () => {
+        const response = await updateApplicationPool();
+        if (response.status === 204) {
+            alert('Application Pool Updated successfully!');
+            props.history.goBack();
+        } else {
+            alert(`Error: ${response.response.data.Response.message}`);
+        }
+    };
 
     return (
         <div className={classes.editApplicationPoolForm}>
@@ -89,7 +104,7 @@ const EditApplicationPool = (props) => {
                     <button className={classes.addApplicationPoolSuccessButton}
                             onClick={updateButtonHandler}>Update
                     </button>
-                    <button className={classes.addApplicationPoolDangerButton} onClick={useHistory().goBack}>Back
+                    <button className={classes.addApplicationPoolDangerButton} onClick={backButtonHandler}>Back
                     </button>
                 </div>
             </div>
