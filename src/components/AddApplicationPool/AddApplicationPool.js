@@ -1,4 +1,4 @@
-﻿import React, {useEffect, useState} from 'react';
+﻿import React, {useState} from 'react';
 import classes from './AddApplicationPool.module.css';
 
 const AddApplicationPool = (props) => {
@@ -29,6 +29,11 @@ const AddApplicationPool = (props) => {
         managedPipelineMode: newManagedPipelineMode,
         autoStart: newStartImmediately
     });
+
+    const cancelButtonHandler = () => {
+        setNewName('');
+        props.cancelClick();
+    }
 
     return (
         <div className={classes.addApplicationPoolForm}>
@@ -61,7 +66,7 @@ const AddApplicationPool = (props) => {
                     <button className={classes.addApplicationPoolSuccessButton}
                             onClick={props.addClick.bind(null, generateNewApplicationPool())}>Add
                     </button>
-                    <button className={classes.addApplicationPoolDangerButton} onClick={props.cancelClick}>Cancel
+                    <button className={classes.addApplicationPoolDangerButton} onClick={cancelButtonHandler}>Cancel
                     </button>
                 </div>
             </div>

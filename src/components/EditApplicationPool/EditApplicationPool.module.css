@@ -1,0 +1,70 @@
+.editApplicationPoolForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.applicationPoolName {
+    height: 2.5rem;
+    width: 16rem;
+    font-size: 1.2rem;
+    border: 1px solid black;
+    border-radius: 4px;
+    outline: none;
+    padding: 0.3rem;
+}
+.applicationPoolName:focus, .applicationPoolName:hover {
+    border: black solid 1px;
+    box-shadow: inset 0 0 5px black;
+    cursor: text;
+}
+
+.editApplicationPoolField {
+    width: auto;
+    height: 2.5rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: baseline;
+}
+
+.editApplicationPoolField:first-of-type {
+    margin-bottom: 1rem;
+}
+
+.applicationPoolLabel {
+    margin-right: 0.5rem;
+}
+
+.applicationPoolSelect {
+    height: 1.5rem;
+    font-size: 1rem;
+}
+
+.applicationPoolButtons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.addApplicationPoolSuccessButton {
+    width: 5rem;
+    height: 2rem;
+    background: limegreen;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 0.3rem;
+}
+
+.addApplicationPoolDangerButton {
+    width: 5rem;
+    height: 2rem;
+    background: red;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 0.3rem;
+}
+
+.addApplicationPoolSuccessButton:hover, .addApplicationPoolDangerButton:hover {
+    box-shadow: inset 0 0 5px black;
+    cursor: pointer;
+}
+

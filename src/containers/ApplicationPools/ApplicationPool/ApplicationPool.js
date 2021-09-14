@@ -2,6 +2,7 @@
 import classes from './ApplicationPool.module.css';
 import './ApplicationPool.module.css';
 import axios from '../../../axios';
+import {Link} from 'react-router-dom';
 
 const ApplicationPool = (props) => {
     const [details, setDetails] = useState('applicationPool__details--hide');
@@ -23,9 +24,9 @@ const ApplicationPool = (props) => {
             setApplicationPoolStatus(response.data.status);
         });
 
-    const stopApplicationPool = async () => axios.put(`/ApplicationPools/${props.name}/stop`);
+    const stopApplicationPool = () => axios.put(`/ApplicationPools/${props.name}/stop`);
 
-    const startApplicationPool = async () => axios.put(`/ApplicationPools/${props.name}/start`);
+    const startApplicationPool = () => axios.put(`/ApplicationPools/${props.name}/start`);
 
     const recycleApplicationPool = async () => axios.put(`/ApplicationPools/${props.name}/recycle`);
 
@@ -73,7 +74,8 @@ const ApplicationPool = (props) => {
                     <button className={classes['applicationPool__button--delete']}
                             onClick={props.deleteHandler}/>
                     
-                    <button className={classes['applicationPool__button--edit']}/>
+                    <Link to={`/applicationPool/edit/${props.name}`} className={classes['applicationPool__button--edit']}
+                            name={props.name}/>
                     <button className={classes['applicationPool__button--details']}
                             onClick={detailsStateHandler}/>
                 </div>

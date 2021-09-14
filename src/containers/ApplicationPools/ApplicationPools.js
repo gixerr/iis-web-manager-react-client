@@ -8,7 +8,6 @@ import Modal from '../../components/Modal/Modal';
 import AddApplicationPool from '../../components/AddApplicationPool/AddApplicationPool';
 import DeleteApplicationPool from '../../components/DeleteApplicationPool/DeleteApplicationPool';
 
-
 const ApplicationPools = (props) => {
 
     const [applicationPools, setApplicationPools] = useState([]);
@@ -60,11 +59,11 @@ const ApplicationPools = (props) => {
         setSearchFieldValue('');
     };
 
-    const deleteButtonHandler = async (name) => {
+    const deleteButtonHandler = (name) => {
         setModalState(!modalState);
         const component = <DeleteApplicationPool applicationPoolName={name}
                                                  deleteClick={modalDeleteButtonHandler.bind(null, name)}
-                                                 cancelClick={modalCancelButtonHandler}/>
+                                                 cancelClick={modalCancelButtonHandler}/>;
         setModalComponent(component);
 
     };
@@ -78,7 +77,7 @@ const ApplicationPools = (props) => {
     };
 
     const modalAddButtonHandler = async (newAppPool) => {
-        await axios.post('/ApplicationPools', newAppPool)
+        await axios.post('/ApplicationPools', newAppPool);
         setModalState(false);
         await fetchAllApplicationPools();
     };
@@ -88,7 +87,7 @@ const ApplicationPools = (props) => {
         setSearchFieldValue('');
         setModalState(false);
         await fetchAllApplicationPools();
-    }
+    };
 
     const addButtonHandler = () => {
         setModalState(!modalState);
@@ -97,7 +96,7 @@ const ApplicationPools = (props) => {
         setModalComponent(component);
     };
 
-        useEffect(fetchAllApplicationPools, []);
+    useEffect(fetchAllApplicationPools, []);
 
     const renderOutput = () => {
         if (applicationPools.length > 0) {
@@ -116,7 +115,8 @@ const ApplicationPools = (props) => {
                                                                               managedPipelineMode={applicationPool.managedPipelineMode}
                                                                               identity={applicationPool.identity}
                                                                               applications={applicationPool.applications}
-                                                                              deleteHandler={deleteButtonHandler.bind(null, applicationPool.name)}/>
+                                                                              deleteHandler={deleteButtonHandler.bind(null, applicationPool.name)}
+                                                                              />
                     )}
                 </section>
             );
