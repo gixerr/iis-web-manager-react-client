@@ -25,7 +25,7 @@ const EditApplicationPool = (props) => {
         const response = await axios.put('/ApplicationPools', {
             name: decodeURI(currentApplicationPoolName),
             newName: applicationPoolName, managedPipelineMode, managedRunTimeVersion, identity
-        }).catch(resp => resp);
+        }).catch(response => response);
 
         return response;
 
@@ -56,7 +56,7 @@ const EditApplicationPool = (props) => {
     const updateButtonHandler = async () => {
         const response = await updateApplicationPool();
         if (response.status === 204) {
-            alert('Application Pool Updated successfully!');
+            alert('Application Pool updated successfully!');
             props.history.goBack();
         } else {
             alert(`Error: ${response.response.data.Response.message}`);
